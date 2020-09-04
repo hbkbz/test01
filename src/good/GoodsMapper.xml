@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="db.student">
+	<select id="selById" resultType="Goods" parameterType="int">
+		select * from shopping where goodId=#{goodId}
+	</select>
+
+	<insert id="addGood" parameterType="goods">
+		INSERT INTO `test`.`shopping`
+		(`goodId`, `goodName`, `Price`)
+		VALUES
+		(null,#{goodName},#{price}) ;
+	</insert>
+
+	<update id="updGoodById">
+		UPDATE
+		`test`.`shopping`
+		SET
+		`goodName` = #{goodName},
+		`Price` = #{price}
+		WHERE `goodId` = #{goodId} ;
+	</update>
+
+	<delete id="delById">
+		DELETE
+		FROM
+		`test`.`shopping`
+		WHERE `goodId` = #{goodId} ;
+	</delete>
+</mapper>
